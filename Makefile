@@ -2,9 +2,11 @@ GC = go
 BC = build 
 TARG = HelloWorld 
 BTARG = HelloWorld.go
-PACKAGE = main
+PACKAGE = package
 
 all:
+	make package
+package:
 	make clean
 	mkdir $(PACKAGE)
 	cp $(BTARG) $(PACKAGE)/
