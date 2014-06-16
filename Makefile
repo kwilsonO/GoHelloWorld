@@ -7,9 +7,9 @@ PACKAGE = package
 all:
 	make package
 package:
-	go get github.com/hoisie/web
 	make clean
 	mkdir $(PACKAGE)
+        cp -r web $(PACKAGE)/
 	cp $(BTARG) $(PACKAGE)/
 	make proj
 	cp $(TARG) $(PACKAGE)/
