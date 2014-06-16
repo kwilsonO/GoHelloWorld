@@ -9,7 +9,7 @@ all:
 package:
 	make clean
 	mkdir $(PACKAGE)
-	cp -r web $(PACKAGE)/
+	cp -r websocket $(PACKAGE)/
 	cp $(BTARG) $(PACKAGE)/
 	make proj
 	cp $(TARG) $(PACKAGE)/
