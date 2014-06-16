@@ -1,9 +1,15 @@
 package main
 
-import "fmt"
+import(
 
+  "github.com/hoisie/web"
+) 
+
+func hello(val string) string{
+   return "hello " + val
+}
 
 func main(){
-
-  fmt.Println("Hello, World")
+   web.Get("/(.*)", hello)
+   web.Run("127.0.0.1:9999")
 }
