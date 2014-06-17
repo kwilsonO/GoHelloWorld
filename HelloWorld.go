@@ -5,9 +5,9 @@ import(
   "./web"
   //"database/sql"
   //_ "./go-sqlite3"
-  atlantis "atlantis/types"
-  "os"
-  "strconv"
+  atlantis "./atlantis/types"
+  //"os"
+  //"strconv"
   "fmt"
   "log"
 )
@@ -20,7 +20,7 @@ var(
 func init() {
   cfg, err := atlantis.LoadAppConfig()
   if err != nil {
-     log.Printf("error opening using default port)
+     log.Printf("error opening using default port")
      listenAddr = ":9999"
      return
   }
