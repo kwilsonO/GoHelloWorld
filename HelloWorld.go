@@ -5,6 +5,7 @@ import(
   "./web"
   //"database/sql"
   //_ "./go-sqlite3"
+  atlantis "atlantis/types"
   "os"
   "strconv"
   "fmt"
@@ -12,20 +13,18 @@ import(
 )
 
 var(
-   addr = 9999
    listenAddr string
    //db driver.Conn
 )
 
 func init() {
-   if p := os.Getenv("HTTP_PORT"); p != "" {
-      var err error
-      addr, err = strconv.Atoi(p)
-      if err != nil {
-         log.Fatal(err)
-      }
-    }
-  listenAddr = fmt.Sprintf(":%d", addr)
+  cfg, err := atlantis.LoadAppConfig()
+  if err != nil {
+     log.Printf("error opening using default port)
+     listenAddr = ":9999"
+     return
+  }
+  listenAddr = fmt.Sprintf(":%d", cfg.HTTPPort)
   //db, err := sql.Open("sqlite3", "./local.db")
   //if err != nil {
    //  log.Fatal(err)
