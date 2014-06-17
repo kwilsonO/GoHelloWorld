@@ -8,7 +8,7 @@ import(
   "os"
   "strconv"
   "fmt"
-  //"log"
+  "log"
 )
 
 var(
