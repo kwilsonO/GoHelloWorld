@@ -38,8 +38,13 @@ func init() {
 func hello(val string) string{
    return "hello " + val
 }
+func healthz(ctx *web.Context, val string) string{
+  ctx.WrtieHeader(200)
+  return "set code to 200"
+}
 
 func main(){
-   web.Get("/(.*)", hello)
+   web.Get("/healthz", healthz)
+   web.Get("/process/(.*)", hello)
    web.Run("127.0.0.1" + listenAddr)
 }
