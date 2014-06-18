@@ -40,6 +40,7 @@ func hello(val string) string{
 }
 func healthz(ctx *web.Context, val string) string{
   ctx.WriteHeader(200)
+  ctx.SetHeader("Server-Status", "OK", true)
   return "set code to 200"
 }
 
