@@ -45,7 +45,7 @@ func healthz(ctx *web.Context, val string){
 }
 
 func main(){
-   web.Get("/healthz", healthz)
+   web.Get("/(healthz)", healthz)
    web.Get("/process/(.*)", hello)
    web.Run("0.0.0.0" + listenAddr)
 }
