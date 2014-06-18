@@ -39,7 +39,7 @@ func hello(val string) string{
    return "hello " + val
 }
 func healthz(ctx *web.Context, val string) string{
-  ctx.WrtieHeader(200)
+  ctx.WriteHeader(200)
   return "set code to 200"
 }
 
