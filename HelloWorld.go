@@ -38,10 +38,9 @@ func init() {
 func hello(val string) string{
    return "hello " + val
 }
-func healthz(ctx *web.Context, val string) string{
-  ctx.WriteHeader(200)
-  ctx.SetHeader("Server-Status", "OK", true)
-  return "set code to 200"
+func healthz(ctx *web.Context, val string){
+   ctx.ResponseWriter.Header().Add("Server-Status", "OK")
+   ctx.ResponseWriter.Write([]byte("OK\n"))
 }
 
 func main(){
