@@ -39,6 +39,7 @@ func hello(val string) string{
    return "hello " + val
 }
 func healthz(ctx *web.Context, val string){
+   ctx.ContentType("text/plain")
    ctx.ResponseWriter.Header().Add("Server-Status", "OK")
    ctx.ResponseWriter.Write([]byte("OK\n"))
 }
